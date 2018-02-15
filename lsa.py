@@ -12,6 +12,9 @@ wordnet_lemmatizer = WordNetLemmatizer()
 
 titles = [line.rstrip() for line in open('all_book_titles.txt')]
 
+print('number of titles: %d' % len(titles))
+print(titles[0])
+
 stopwords = set(w.rstrip() for w in open('stopwords.txt'))
 
 # add more stopwords specific to this problem
@@ -48,6 +51,7 @@ for title in titles:
         all_titles.append(title)
         tokens = my_tokenizer(title)
         all_tokens.append(tokens)
+
         for token in tokens:
             if token not in word_index_map:
                 word_index_map[token] = current_index
